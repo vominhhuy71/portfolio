@@ -5,8 +5,8 @@
         <img
           src="@/assets/avatar.png"
           class="introduction__img"
-          height="371px"
-          width="395px"
+          height="782px"
+          width="420px"
         />
       </div>
       <div class="introduction__info">
@@ -17,25 +17,38 @@
         <div class="introduction__info__title">
           FULL-STACK DEVELOPER
         </div>
-        <div class="introduction__info__spacer"></div>
-
-        <div class="introduction__info__typewriter">
-          <div class="introduction__info__typewriter__line">1</div>
-          <div class="introduction__info__typewriter__code__wrapper">
-            <div class="introduction__info__typewriter__code">
-              <span style="color:#9CDCFE">console</span
-              ><span style="color:#DCDCAA">.log</span
-              ><span style="color:yellow">(</span
-              ><span style="color: #CE9178">'Hello world!'</span
-              ><span style="color:yellow">)</span>
-            </div>
-          </div>
-        </div>
+        <compiler />
+        <!-- <div class="introduction__icon__wrapper">
+          <img
+            src="@/assets/linkedin_icon.svg"
+            class="introduction__icon"
+            height="30px"
+            width="30px"
+            @click="openLink('linkedin')"
+            title="LinkedIn"
+          />
+          <img
+            src="@/assets/gmail_icon.svg"
+            class="introduction__icon"
+            height="30px"
+            width="30px"
+            @click="openLink('gmail')"
+            title="Mail"
+          />
+          <img
+            src="@/assets/Octocat.png"
+            class="introduction__icon"
+            height="30px"
+            width="30px"
+            @click="openLink('github')"
+            title="GitHub"
+          />
+        </div> -->
       </div>
     </div>
 
     <div class="introduction__more">
-      <p>LEARN MORE ABOUT ME!</p>
+      <!-- <p>LEARN MORE ABOUT ME!</p> -->
       <div class="introduction__more__arrow-down">
         <img src="@/assets/down-arrow.svg" />
       </div>
@@ -45,11 +58,24 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Compiler from '@/components/compiler/compiler.vue';
 
-console.log('object');
-
-@Component
-export default class Introduction extends Vue {}
+@Component({
+  components: {
+    Compiler,
+  },
+})
+export default class Introduction extends Vue {
+  private openLink(link: string) {
+    if (link === 'linkedin') {
+      window.open('https://www.linkedin.com/in/minh-huy-vo/', '_blank');
+    } else if (link === 'github') {
+      window.open('https://github.com/vominhhuy71', '_blank');
+    } else if (link === 'gmail') {
+      window.open('mailto:huy.vminh71@gmail.com', '_blank');
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -72,10 +98,10 @@ export default class Introduction extends Vue {}
   &__info {
     width: 1045px;
     height: 413px;
-    margin-top: 75px;
-    padding-left: 50px;
+    margin-top: 150px;
+    padding-left: 100px;
     &__hello {
-      font-family: Ropa Sans;
+      font-family: 'Ropa Sans', serif;
       font-style: normal;
       font-weight: normal;
       font-size: 35px;
@@ -84,7 +110,7 @@ export default class Introduction extends Vue {}
       color: #2a9d8f;
     }
     &__name {
-      font-family: Ropa Sans;
+      font-family: 'Ropa Sans', serif;
       font-style: normal;
       font-weight: normal;
       font-size: 35px;
@@ -93,7 +119,7 @@ export default class Introduction extends Vue {}
       color: #e76f51;
     }
     &__title {
-      font-family: Rowdies;
+      font-family: 'Rowdies', serif;
       font-style: normal;
       font-weight: normal;
       font-size: 75px;
@@ -121,61 +147,6 @@ export default class Introduction extends Vue {}
       -moz-animation: progress 2s ease-in-out;
       -moz-animation-fill-mode: both;
     }
-    &__typewriter {
-      margin-top: 100px;
-      font-family: 'Source Code Pro', monospace;
-
-      text-align: left;
-      background: #000;
-      height: 50px;
-      width: 600px;
-      display: flex;
-      align-items: center;
-      &__line {
-        width: 50px;
-        display: flex;
-        justify-content: center;
-        color: grey;
-      }
-      &__code {
-        &__wrapper {
-          background-color: #1e1e1e;
-          height: 100%;
-          width: 100%;
-          padding-left: 10px;
-        }
-        background-color: #1e1e1e;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        font-weight: normal;
-        font-size: 25px;
-        position: relative;
-        width: max-content;
-        letter-spacing: 0.5px;
-        &::before,
-        &::after {
-          content: '';
-          top: 9px;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          position: absolute;
-        }
-        &::before {
-          background: #1e1e1e;
-          animation: typewriter 6s steps(27) 1s forwards;
-        }
-        &::after {
-          height: 30px;
-          width: 0.125em;
-          background: #d4d4d4;
-          animation: typewriter 6s steps(27) 1s forwards,
-            blink 750ms steps(27) infinite;
-        }
-      }
-    }
   }
   &__more {
     position: absolute;
@@ -183,7 +154,7 @@ export default class Introduction extends Vue {}
     width: 100vw;
     bottom: 0;
     & > p {
-      font-family: Ropa Sans;
+      font-family: 'Ropa Sans', serif;
       font-style: normal;
       font-weight: normal;
       font-size: 35px;
@@ -194,6 +165,15 @@ export default class Introduction extends Vue {}
     &__arrow-down {
       animation: arrow 2s ease-out infinite;
     }
+  }
+  &__icon {
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 200px;
+      margin-top: 20px;
+    }
+    cursor: pointer;
   }
 }
 
@@ -215,17 +195,6 @@ export default class Introduction extends Vue {}
   }
   100% {
     width: 650px;
-  }
-}
-
-@keyframes typewriter {
-  to {
-    left: 100%;
-  }
-}
-@keyframes blink {
-  to {
-    background: transparent;
   }
 }
 </style>

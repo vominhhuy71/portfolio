@@ -2,8 +2,8 @@
   <div>
     <!-- <nav-bar /> -->
     <introduction class="home__component" />
-    <!-- <about class="home__component" />
-    <skills class="home__component" />
+    <about />
+    <!-- <skills class="home__component" />
     <projects class="home__component" /> -->
   </div>
 </template>
