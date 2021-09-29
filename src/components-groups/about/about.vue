@@ -1,7 +1,7 @@
 <template>
   <div class="about__wrapper">
     <div class="about__info">
-      <div class="about__info__title">Who am I?</div>
+      <div class="about__info__title"></div>
       <div class="about__info__content">
         After 4 years studying and working in IT field, I have gained experience
         in creating well-designed web applications and working with server. I
@@ -9,7 +9,44 @@
         React.
       </div>
     </div>
-    <div class="about__ability">
+    <div class="about__experience__wrapper">
+      <div class="about__experience fade-in">
+        <div class="about__experience__item1">
+          <div class="about__experience__title">
+            Naava Oy
+          </div>
+          <div class="about__experience__position">
+            Frontend developer
+          </div>
+          <div class="about__experience__time">
+            08/2021 - now
+          </div>
+        </div>
+        <div class="about__experience__item2">
+          <div class="about__experience__title">
+            Integrify
+          </div>
+          <div class="about__experience__position">
+            Full Stack developer
+          </div>
+          <div class="about__experience__time">
+            05/2021 - now
+          </div>
+        </div>
+        <div class="about__experience__item3">
+          <div class="about__experience__title">
+            South-Eastern Finland University of Applied Sciences
+          </div>
+          <div class="about__experience__position">
+            IT student
+          </div>
+          <div class="about__experience__time">
+            08/2018 - now
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about__ability fade-in">
       <div class="about__ability__title">What can I do?</div>
       <div class="about__ability__content">
         <template v-for="(item, index) in abilities">
@@ -17,41 +54,6 @@
             <ability :desc="item.desc" :iconUrl="item.iconUrl" />
           </div>
         </template>
-      </div>
-    </div>
-    <div class="about__experience">
-      <div class="about__experience__item1">
-        <div class="about__experience__title">
-          Naava Oy
-        </div>
-        <div class="about__experience__position">
-          Frontend developer
-        </div>
-        <div class="about__experience__time">
-          08/2021 - now
-        </div>
-      </div>
-      <div class="about__experience__item2">
-        <div class="about__experience__title">
-          Integrify
-        </div>
-        <div class="about__experience__position">
-          Full Stack developer
-        </div>
-        <div class="about__experience__time">
-          05/2021 - now
-        </div>
-      </div>
-      <div class="about__experience__item3">
-        <div class="about__experience__title">
-          South-Eastern Finland University of Applied Sciences
-        </div>
-        <div class="about__experience__position">
-          IT student
-        </div>
-        <div class="about__experience__time">
-          08/2018 - now
-        </div>
       </div>
     </div>
   </div>
@@ -67,6 +69,11 @@ import Ability from '@/components-groups/about/ability.vue';
   },
 })
 export default class About extends Vue {
+  private options: any = {
+    threshold: 1,
+    rootMargin: '-50px 0px -10px 0px',
+  };
+
   private get abilities() {
     return [
       {
@@ -87,6 +94,25 @@ export default class About extends Vue {
       },
     ];
   }
+
+  private mounted() {
+    const faders = document.querySelectorAll('.fade-in')!;
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, this.options);
+
+    faders.forEach((section) => {
+      observer.observe(section);
+    });
+  }
 }
 </script>
 
@@ -103,28 +129,33 @@ export default class About extends Vue {
     }
   }
   &__info {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: row;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    &__title,
+    &__content {
+      grid-row: 1/2;
+      align-self: center;
+    }
+
     &__title {
-      font-family: Ropa Sans;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 50px;
-      line-height: 57px;
+      grid-column: 1/3;
 
-      color: #4c4d1b;
-      width: 111px;
-      height: 144px;
+      width: 150px;
+      height: 250px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: url('~@/assets/about/park.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
     &__content {
-      max-width: 789px;
+      grid-column: 2/-1;
+
+      width: 789px;
       text-align: left;
       display: flex;
       align-items: center;
@@ -133,7 +164,11 @@ export default class About extends Vue {
       font-weight: normal;
       font-size: 25px;
       line-height: 32px;
-      padding-left: 50px;
+      padding: 20px;
+
+      background: #fff;
+
+      box-shadow: 4px 4px 10px rgba(20, 108, 117, 0.25);
     }
   }
   &__ability {
@@ -141,15 +176,25 @@ export default class About extends Vue {
     margin: 0 auto;
 
     &__title {
-      font-family: Ropa Sans;
+      font-family: 'Ropa Sans', serif;
       font-style: normal;
       font-weight: normal;
       font-size: 50px;
       line-height: 57px;
-
-      color: #4c4d1b;
       margin: 0 auto;
       margin-top: 25px;
+
+      background-image: linear-gradient(
+        90deg,
+        #f9f871,
+        #a0dc7a,
+        #54b986,
+        #189386,
+        #146c75,
+        #264653
+      );
+      background-clip: text;
+      color: transparent;
     }
     &__content {
       display: flex;
@@ -163,9 +208,37 @@ export default class About extends Vue {
     }
   }
   &__experience {
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: url('~@/assets/about/road.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      position: relative;
+      z-index: 1;
+      isolation: isolate;
+    }
+
     margin: 0 auto;
-    padding-top: 25px;
-    max-width: 1000px;
+    width: 1000px;
+    // height: 70vh;
+    padding: 100px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #344a53;
+      z-index: -1;
+      mix-blend-mode: multiply;
+
+      margin: 50px 100px;
+    }
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
@@ -174,6 +247,8 @@ export default class About extends Vue {
       'blank2 item2'
       'item3 blank3';
     &__item1 {
+      padding-right: 50px;
+
       grid-area: item1;
 
       &::before {
@@ -182,7 +257,7 @@ export default class About extends Vue {
         top: 50px;
         right: 0px;
         width: 50px;
-        border-bottom: 3px solid #000;
+        border-bottom: 3px solid #98afba;
       }
       &::after {
         content: '';
@@ -190,19 +265,21 @@ export default class About extends Vue {
         top: 50px;
         right: -2px;
         height: 100%;
-        border-right: 4px solid #000;
+        border-right: 4px solid #98afba;
       }
     }
     &__item2 {
+      padding-left: 50px;
+
       grid-area: item2;
       padding-top: 18px;
       &::before {
         content: '';
         position: absolute;
         top: 50px;
-        left: -2px;
+        left: 0px;
         width: 50px;
-        border-bottom: 3px solid #000;
+        border-bottom: 3px solid #98afba;
       }
       &::after {
         content: '';
@@ -210,10 +287,12 @@ export default class About extends Vue {
         top: 50px;
         left: -2px;
         height: 120%;
-        border-right: 4px solid #000;
+        border-right: 4px solid #98afba;
       }
     }
     &__item3 {
+      padding-right: 50px;
+
       grid-area: item3;
       &::before {
         content: '';
@@ -221,7 +300,7 @@ export default class About extends Vue {
         top: 65px;
         right: 0px;
         width: 50px;
-        border-bottom: 3px solid #000;
+        border-bottom: 3px solid #98afba;
       }
       &::after {
         content: '';
@@ -229,7 +308,7 @@ export default class About extends Vue {
         top: 65px;
         right: -2px;
         height: 75%;
-        border-right: 4px solid #000;
+        border-right: 4px dashed #98afba;
       }
     }
     &__item1,
@@ -249,14 +328,26 @@ export default class About extends Vue {
     }
     &__title {
       font-size: 25px;
-      max-width: 300px;
+      // max-width: 300px;
+      color: #98afba;
     }
     &__position {
       font-size: 20px;
+      color: #98afba;
     }
     &__time {
       font-size: 18px;
+      color: #98afba;
     }
   }
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-in.appear {
+  opacity: 1;
 }
 </style>

@@ -1,0 +1,18 @@
+$smallest-phone: 320px;
+$small-phone-width: 375px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$wide-width: 1220px;
+$full-width: 1408px;
+
+$smallest-phone: '(max-width: #{$small-phone-width - 1})';
+$small-phone: '(max-width: #{$small-phone-width})';
+$large-phone: '(min-width: #{$small-phone-width}) and (max-width: #{$tablet-width - 1})';
+$phone: '(max-width: #{$tablet-width - 1})';
+$tablet: '(min-width: #{$tablet-width})';
+$max-tablet: '(max-width: #{$tablet-width})';
+$touch: '(max-width: #{$desktop-width - 1})';
+$desktop: '(min-width: #{$desktop-width})';
+$pre-desktop: '(max-width: #{$desktop-width})';
+$wide: '(min-width: #{$wide-width})';
+$full: '(min-width: #{$full-width})';

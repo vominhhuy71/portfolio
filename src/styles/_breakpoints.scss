@@ -1,0 +1,19 @@
+@import '_breakpoints.abstracts.scss';
+
+:root {
+  --small-phone-width: #{$small-phone-width};
+  --tablet-width: #{$tablet-width};
+  --desktop-width: #{$desktop-width};
+  --wide-width: #{$wide-width};
+  --full-width: #{$full-width};
+  --small-phone-media: #{$small-phone};
+  --large-phone-media: #{$large-phone};
+  --phone-media: #{$phone};
+  --tablet-media: #{$tablet};
+  --touch-media: #{$touch};
+  --desktop-media: #{$desktop};
+  --pre-desktop-media: #{$pre-desktop};
+  --wide-media: #{$wide};
+  --full-media: #{$full};
+  --max-tablet: #{$max-tablet};
+}

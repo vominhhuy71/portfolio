@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <notification-bar :text="'Under contruction!'" v-if="true" />
+    <!-- <notification-bar :text="'Under contruction!'" v-if="true" /> -->
     <router-view />
   </div>
 </template>
@@ -35,6 +35,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 * {
   box-sizing: border-box;

@@ -46,13 +46,6 @@
         </div> -->
       </div>
     </div>
-
-    <div class="introduction__more">
-      <!-- <p>LEARN MORE ABOUT ME!</p> -->
-      <div class="introduction__more__arrow-down">
-        <img src="@/assets/down-arrow.svg" />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -81,11 +74,11 @@ export default class Introduction extends Vue {
 <style lang="scss" scoped>
 .introduction {
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   position: relative;
 
   /**Background */
-  background: url('~@/assets/backgrounds/background1.jpg');
+  background: url('~@/assets/introduction/background1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -99,11 +92,12 @@ export default class Introduction extends Vue {
   justify-content: center;
 
   &__wrapper {
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     position: relative;
-    width: 70vw;
     align-items: center;
     &::after {
       content: '';
@@ -143,7 +137,7 @@ export default class Introduction extends Vue {
       font-size: 35px;
       line-height: 40px;
 
-      color: #e76f51;
+      color: #f39530;
     }
     &__title {
       font-family: 'Rowdies', serif;
@@ -152,7 +146,7 @@ export default class Introduction extends Vue {
       font-size: 75px;
       line-height: 100px;
       text-align: left;
-      color: #fff;
+      color: #f9f871;
       width: 500px;
       text-shadow: 0.025em 0.025em 0 yellow, 0.05em 0.05em 0 blue,
         0.075em 0.075em 0 red, 0.1em 0.1em 0 black;
@@ -179,7 +173,7 @@ export default class Introduction extends Vue {
       font-size: 35px;
       line-height: 40px;
 
-      color: #e76f51;
+      color: #f39530;
     }
     &__arrow-down {
       animation: arrow 2s ease-out infinite;
