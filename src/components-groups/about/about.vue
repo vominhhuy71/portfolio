@@ -181,7 +181,7 @@ export default class About extends Vue {
         position: absolute;
         top: 50px;
         right: 0px;
-        width: 75px;
+        width: 50px;
         border-bottom: 3px solid #000;
       }
       &::after {
@@ -201,7 +201,7 @@ export default class About extends Vue {
         position: absolute;
         top: 50px;
         left: -2px;
-        width: 75px;
+        width: 50px;
         border-bottom: 3px solid #000;
       }
       &::after {
@@ -220,7 +220,7 @@ export default class About extends Vue {
         position: absolute;
         top: 65px;
         right: 0px;
-        width: 75px;
+        width: 50px;
         border-bottom: 3px solid #000;
       }
       &::after {
