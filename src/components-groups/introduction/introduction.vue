@@ -80,11 +80,39 @@ export default class Introduction extends Vue {
 
 <style lang="scss" scoped>
 .introduction {
-  height: 100%;
+  width: 100%;
+  max-height: 100%;
   position: relative;
+
+  /**Background */
+  background: url('~@/assets/backgrounds/background1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &__wrapper {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: 70vw;
+    align-items: center;
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #264653;
+      z-index: -1;
+      mix-blend-mode: multiply;
+    }
   }
   &__img {
     &__wrapper {
@@ -98,7 +126,6 @@ export default class Introduction extends Vue {
   &__info {
     width: 1045px;
     height: 413px;
-    margin-top: 150px;
     padding-left: 100px;
     &__hello {
       font-family: 'Ropa Sans', serif;
@@ -125,18 +152,10 @@ export default class Introduction extends Vue {
       font-size: 75px;
       line-height: 100px;
       text-align: left;
-      color: #264653;
-      // background-image: linear-gradient(
-      //   90deg,
-      //   #264653,
-      //   #2a9d8f,
-      //   #e9c46a,
-      //   #f4a261,
-      //   #e76f51
-      // );
-      // background-clip: text;
-      // color: transparent;
+      color: #fff;
       width: 500px;
+      text-shadow: 0.025em 0.025em 0 yellow, 0.05em 0.05em 0 blue,
+        0.075em 0.075em 0 red, 0.1em 0.1em 0 black;
     }
     &__spacer {
       width: 650px;
