@@ -2,12 +2,7 @@
   <div class="introduction">
     <div class="introduction__wrapper">
       <div class="introduction__img__wrapper">
-        <img
-          src="@/assets/avatar.png"
-          class="introduction__img"
-          height="782px"
-          width="420px"
-        />
+        <img src="@/assets/avatar.png" class="introduction__img" />
       </div>
       <div class="introduction__info">
         <div class="introduction__info__hello">
@@ -72,6 +67,8 @@ export default class Introduction extends Vue {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/breakpoints.abstracts';
+
 .introduction {
   width: 100%;
   height: 100%;
@@ -107,20 +104,36 @@ export default class Introduction extends Vue {
       z-index: -1;
       mix-blend-mode: multiply;
     }
+
+    @media (max-width: 1350px) {
+      flex-direction: column;
+    }
   }
   &__img {
     &__wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-left: 83px;
-      width: 671px;
+
+      @media #{$desktop} {
+        width: 671px;
+        padding-left: 83px;
+      }
+    }
+    @media #{$phone} {
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
   &__info {
-    width: 1045px;
+    max-width: 1045px;
     height: 413px;
     padding-left: 100px;
+    @media #{$phone} {
+      padding-left: 0px;
+    }
     &__hello {
       font-family: 'Ropa Sans', serif;
       font-style: normal;
@@ -150,6 +163,12 @@ export default class Introduction extends Vue {
       width: 500px;
       text-shadow: 0.025em 0.025em 0 yellow, 0.05em 0.05em 0 blue,
         0.075em 0.075em 0 red, 0.1em 0.1em 0 black;
+
+      @media #{$phone} {
+        width: 10ch;
+        font-size: 50px;
+        line-height: 75px;
+      }
     }
     &__spacer {
       width: 650px;

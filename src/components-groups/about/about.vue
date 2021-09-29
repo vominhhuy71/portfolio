@@ -51,7 +51,11 @@
       <div class="about__ability__content">
         <template v-for="(item, index) in abilities">
           <div :key="index">
-            <ability :desc="item.desc" :iconUrl="item.iconUrl" />
+            <ability
+              :class="{ oddItem: index === 1 }"
+              :desc="item.desc"
+              :iconUrl="item.iconUrl"
+            />
           </div>
         </template>
       </div>
@@ -117,6 +121,8 @@ export default class About extends Vue {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/breakpoints.abstracts';
+
 .about {
   &__wrapper {
     background: white;
@@ -133,8 +139,12 @@ export default class About extends Vue {
     margin: 0 auto;
     padding-top: 75px;
     padding-bottom: 75px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+
+    @media #{$desktop} {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
     &__title,
     &__content {
       grid-row: 1/2;
@@ -155,7 +165,7 @@ export default class About extends Vue {
     &__content {
       grid-column: 2/-1;
 
-      width: 789px;
+      max-width: 789px;
       text-align: left;
       display: flex;
       align-items: center;
@@ -169,12 +179,16 @@ export default class About extends Vue {
       background: #fff;
 
       box-shadow: 4px 4px 10px rgba(20, 108, 117, 0.25);
+      @media #{$desktop} {
+        width: 789px;
+      }
     }
   }
   &__ability {
     max-width: 1000px;
     margin: 0 auto;
-
+    margin-top: 75px;
+    margin-bottom: 75px;
     &__title {
       font-family: 'Ropa Sans', serif;
       font-style: normal;
@@ -182,7 +196,6 @@ export default class About extends Vue {
       font-size: 50px;
       line-height: 57px;
       margin: 0 auto;
-      margin-top: 25px;
 
       background-image: linear-gradient(
         90deg,
@@ -224,9 +237,15 @@ export default class About extends Vue {
     }
 
     margin: 0 auto;
-    width: 1000px;
-    // height: 70vh;
-    padding: 100px;
+    max-width: 1000px;
+
+    @media #{$desktop} {
+      padding: 100px;
+    }
+
+    @media #{$phone} {
+      height: 70vh;
+    }
 
     &::after {
       content: '';
@@ -237,6 +256,10 @@ export default class About extends Vue {
       mix-blend-mode: multiply;
 
       margin: 50px 100px;
+
+      @media #{$phone} {
+        margin: 0 0;
+      }
     }
 
     display: grid;
@@ -309,6 +332,9 @@ export default class About extends Vue {
         right: -2px;
         height: 75%;
         border-right: 4px dashed #98afba;
+        @media #{$phone} {
+          height: 50%;
+        }
       }
     }
     &__item1,
@@ -349,5 +375,11 @@ export default class About extends Vue {
 
 .fade-in.appear {
   opacity: 1;
+}
+
+.oddItem {
+  @media #{$phone} {
+    // margin-top: 10px;
+  }
 }
 </style>

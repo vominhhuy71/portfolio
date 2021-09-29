@@ -19,6 +19,8 @@ export default class NavBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/breakpoints.abstracts';
+
 .main-nav {
   display: flex;
   flex-direction: row;
@@ -43,6 +45,10 @@ export default class NavBar extends Vue {
 
   & > div {
     cursor: pointer;
+  }
+
+  @media #{$phone} {
+    display: none;
   }
 }
 </style>

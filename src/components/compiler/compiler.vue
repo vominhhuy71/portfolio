@@ -21,6 +21,8 @@ export default class Compiler extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/breakpoints.abstracts';
+
 .typewriter {
   margin-top: 100px;
   font-family: 'Source Code Pro', monospace;
@@ -28,7 +30,7 @@ export default class Compiler extends Vue {}
   text-align: left;
   background: #000;
   height: 50px;
-  width: 700px;
+  max-width: 700px;
   display: flex;
   align-items: center;
   &__line {
@@ -36,6 +38,9 @@ export default class Compiler extends Vue {}
     display: flex;
     justify-content: center;
     color: grey;
+  }
+  @media #{$phone} {
+    display: none;
   }
   &__code {
     &__wrapper {
