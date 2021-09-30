@@ -161,11 +161,13 @@ export default class About extends Vue {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+
+      @media #{$phone} {
+        display: none;
+      }
     }
     &__content {
       grid-column: 2/-1;
-
-      max-width: 789px;
       text-align: left;
       display: flex;
       align-items: center;

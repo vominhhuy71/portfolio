@@ -97,6 +97,9 @@ export default class Introduction extends Vue {
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 1350px) {
+    height: 120vh;
+  }
   &__wrapper {
     width: 100%;
     height: 100vh;
@@ -118,6 +121,7 @@ export default class Introduction extends Vue {
 
     @media (max-width: 1350px) {
       flex-direction: column;
+      height: 120vh;
     }
   }
   &__img {
@@ -208,6 +212,10 @@ export default class Introduction extends Vue {
     &__arrow-down {
       animation: arrow 2s ease-out infinite;
       cursor: pointer;
+    }
+
+    @media (max-width: 1350px) {
+      display: none;
     }
   }
   &__icon {
