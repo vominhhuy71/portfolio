@@ -71,8 +71,12 @@ export default class Introduction extends Vue {
   @media (max-width: 1350px) {
     height: 120vh;
   }
+
+  @media #{$touch} {
+    flex-direction: column;
+  }
   &__wrapper {
-    width: 50vw;
+    min-width: 50vw;
     height: 100vh;
 
     display: flex;
@@ -93,7 +97,7 @@ export default class Introduction extends Vue {
 
     @media (max-width: 1350px) {
       flex-direction: column;
-      height: 120vh;
+      height: 60vh;
     }
   }
   &__img {
