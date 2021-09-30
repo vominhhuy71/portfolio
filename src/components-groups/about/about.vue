@@ -162,6 +162,9 @@ export default class About extends Vue {
       background-repeat: no-repeat;
       background-position: center;
 
+      outline: 2px solid #35495e;
+      box-shadow: 4px 4px 10px rgba(20, 108, 117, 0.25);
+
       @media #{$phone} {
         display: none;
       }
@@ -179,6 +182,8 @@ export default class About extends Vue {
       padding: 20px;
 
       background: #fff;
+
+      outline: 2px solid #42b883;
 
       box-shadow: 4px 4px 10px rgba(20, 108, 117, 0.25);
       @media #{$desktop} {

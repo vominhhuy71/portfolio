@@ -1,7 +1,6 @@
 <template>
   <div class="introduction">
     <div class="introduction__wrapper">
-      <img src="@/assets/avatar.png" class="introduction__img" />
       <div class="introduction__info">
         <div class="introduction__info__hello">
           HELLO, I'M
@@ -11,50 +10,21 @@
           FULL-STACK DEVELOPER
         </div>
         <compiler />
-        <!-- <div class="introduction__icon__wrapper">
-          <img
-            src="@/assets/linkedin_icon.svg"
-            class="introduction__icon"
-            height="30px"
-            width="30px"
-            @click="openLink('linkedin')"
-            title="LinkedIn"
-          />
-          <img
-            src="@/assets/gmail_icon.svg"
-            class="introduction__icon"
-            height="30px"
-            width="30px"
-            @click="openLink('gmail')"
-            title="Mail"
-          />
-          <img
-            src="@/assets/Octocat.png"
-            class="introduction__icon"
-            height="30px"
-            width="30px"
-            @click="openLink('github')"
-            title="GitHub"
-          />
-        </div> -->
       </div>
     </div>
-    <div class="introduction__more" @click="toAbout">
-      <!-- <p>LEARN MORE ABOUT ME!</p> -->
-      <div class="introduction__more__arrow-down">
-        <img src="@/assets/down-arrow.svg" />
-      </div>
-    </div>
+    <animated-div />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Compiler from '@/components/compiler/compiler.vue';
+import AnimatedDiv from '@/components-groups/introduction/animated-div.vue';
 
 @Component({
   components: {
     Compiler,
+    AnimatedDiv,
   },
 })
 export default class Introduction extends Vue {
@@ -81,13 +51,14 @@ export default class Introduction extends Vue {
 .introduction {
   width: 100%;
   height: 100vh;
-  position: relative;
 
   /**Background */
-  background: url('~@/assets/introduction/background1.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  // background: url('~@/assets/introduction/background1.jpg');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center;
+
+  background: #181719;
 
   position: relative;
   z-index: 1;
@@ -95,29 +66,30 @@ export default class Introduction extends Vue {
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   @media (max-width: 1350px) {
     height: 120vh;
   }
   &__wrapper {
-    width: 100%;
+    width: 50vw;
     height: 100vh;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 
     position: relative;
-    align-items: center;
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #264653;
-      z-index: -1;
-      mix-blend-mode: multiply;
-    }
+
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   inset: 0;
+    //   background: #264653;
+    //   z-index: -1;
+    //   mix-blend-mode: multiply;
+    // }
 
     @media (max-width: 1350px) {
       flex-direction: column;
@@ -145,39 +117,38 @@ export default class Introduction extends Vue {
   &__info {
     max-width: 1045px;
     height: 413px;
-    padding-left: 100px;
     @media #{$phone} {
       padding-left: 0px;
     }
     &__hello {
-      font-family: 'Ropa Sans', serif;
+      font-family: 'Fira Code', monospace;
       font-style: normal;
       font-weight: normal;
-      font-size: 35px;
-      line-height: 40px;
+      font-size: 50px;
+      line-height: 55px;
       text-align: left;
-      color: #2a9d8f;
+      color: #e9e7ea;
+      text-transform: lowercase;
     }
     &__name {
-      font-family: 'Ropa Sans', serif;
+      font-family: 'Fira Code', monospace;
       font-style: normal;
       font-weight: normal;
-      font-size: 35px;
-      line-height: 40px;
+      font-size: 50px;
+      line-height: 55px;
+      color: #32cd32;
 
-      color: #f39530;
+      border-bottom: 3px solid #32cd32;
     }
     &__title {
       font-family: 'Rowdies', serif;
-      font-style: normal;
+      font-style: italic;
       font-weight: normal;
-      font-size: 75px;
-      line-height: 100px;
+      font-size: 20px;
+      line-height: 25px;
       text-align: left;
-      color: #f9f871;
-      width: 500px;
-      text-shadow: 0.025em 0.025em 0 yellow, 0.05em 0.05em 0 blue,
-        0.075em 0.075em 0 red, 0.1em 0.1em 0 black;
+      color: #e9e7ea;
+      text-transform: lowercase;
 
       @media #{$phone} {
         width: 10ch;
@@ -201,7 +172,7 @@ export default class Introduction extends Vue {
     width: 100vw;
     bottom: 30px;
     & > p {
-      font-family: 'Ropa Sans', serif;
+      font-family: 'Fira Code', monospace;
       font-style: normal;
       font-weight: normal;
       font-size: 35px;

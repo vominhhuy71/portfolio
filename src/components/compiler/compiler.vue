@@ -70,13 +70,13 @@ export default class Compiler extends Vue {}
     }
     &::before {
       background: #1e1e1e;
-      animation: typewriter 6s steps(39) 1s forwards;
+      animation: typewriter 6s steps(39) 3s forwards;
     }
     &::after {
       height: 30px;
       width: 0.125em;
       background: #d4d4d4;
-      animation: typewriter 6s steps(39) 1s forwards,
+      animation: typewriter 6s steps(39) 3s forwards,
         blink 750ms steps(39) infinite;
     }
   }

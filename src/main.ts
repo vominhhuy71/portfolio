@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import { importGlobalComponents } from './import-global-components';
 import './styles/main.scss';
+import 'core-js';
 
 Vue.config.productionTip = false;
 importGlobalComponents();

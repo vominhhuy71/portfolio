@@ -1,8 +1,8 @@
 <template>
   <div class="main-nav">
-    <div @click="toSection('about')">About</div>
+    <!-- <div @click="toSection('about')">About</div>
     <div>Skills</div>
-    <div>Contact</div>
+    <div>Contact</div> -->
   </div>
 </template>
 
