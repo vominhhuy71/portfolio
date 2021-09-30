@@ -1,9 +1,7 @@
 <template>
   <div class="introduction">
     <div class="introduction__wrapper">
-      <div class="introduction__img__wrapper">
-        <img src="@/assets/avatar.png" class="introduction__img" />
-      </div>
+      <img src="@/assets/avatar.png" class="introduction__img" />
       <div class="introduction__info">
         <div class="introduction__info__hello">
           HELLO, I'M
@@ -41,6 +39,12 @@
         </div> -->
       </div>
     </div>
+    <div class="introduction__more" @click="toAbout">
+      <!-- <p>LEARN MORE ABOUT ME!</p> -->
+      <div class="introduction__more__arrow-down">
+        <img src="@/assets/down-arrow.svg" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -63,6 +67,11 @@ export default class Introduction extends Vue {
       window.open('mailto:huy.vminh71@gmail.com', '_blank');
     }
   }
+
+  private toAbout() {
+    const el = document.getElementsByClassName('about')[0];
+    el.scrollIntoView();
+  }
 }
 </script>
 
@@ -71,7 +80,7 @@ export default class Introduction extends Vue {
 
 .introduction {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
 
   /**Background */
@@ -90,10 +99,12 @@ export default class Introduction extends Vue {
 
   &__wrapper {
     width: 100%;
+    height: 100vh;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
+
     position: relative;
     align-items: center;
     &::after {
@@ -184,7 +195,7 @@ export default class Introduction extends Vue {
     position: absolute;
     margin: 0 auto;
     width: 100vw;
-    bottom: 0;
+    bottom: 30px;
     & > p {
       font-family: 'Ropa Sans', serif;
       font-style: normal;
@@ -196,6 +207,7 @@ export default class Introduction extends Vue {
     }
     &__arrow-down {
       animation: arrow 2s ease-out infinite;
+      cursor: pointer;
     }
   }
   &__icon {
