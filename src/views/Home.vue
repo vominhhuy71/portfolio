@@ -1,10 +1,12 @@
 <template>
   <div class="home">
-    <splash-screen
-      class="home__component splash-screen"
-      @close-screen="closeSplashScreen"
-    />
-    <introduction class="home__component" />
+    <splash-screen class=" splash-screen" @close-screen="closeSplashScreen" />
+    <div class="home__component introduction">
+      <introduction />
+    </div>
+    <div class="home__component about">
+      <about />
+    </div>
   </div>
 </template>
 
@@ -16,6 +18,8 @@ import Projects from '@/components-groups/projects/projects.vue';
 import About from '@/components-groups/about/about.vue';
 import BackToTop from '@/components/back-to-top/back-to-top.vue';
 import SplashScreen from '@/components/splash-screen/splash-screen.vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   components: {
@@ -52,6 +56,7 @@ export default class extends Vue {
   &__component {
     height: 100vh;
     width: 100vw;
+    background: #181719;
   }
 }
 

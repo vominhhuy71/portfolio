@@ -7,8 +7,10 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^1.4.1",
     "animejs": "^3.2.1",
     "core-js": "^3.18.1",
+    "gsap": "^3.8.0",
     "vue": "^2.6.11",
     "vue-animejs": "^2.1.1",
     "vue-class-component": "^7.2.3",
