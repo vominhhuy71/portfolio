@@ -43,7 +43,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .splash-screen {
   height: 100vh;
-
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

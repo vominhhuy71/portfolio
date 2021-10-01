@@ -215,7 +215,7 @@ export default class AnimatedDiv extends Vue {
     width: 100%;
     height: 100%;
     // overflow: hidden;
-    position: relative;
+    // position: relative;
     @media #{$touch} {
       flex-direction: column;
       height: 10vh;
@@ -223,19 +223,26 @@ export default class AnimatedDiv extends Vue {
   }
 
   &__icons {
-    position: relative;
-    height: 200vh;
-    width: 100vw;
+    position: absolute;
+    width: 40%;
+    right: 0;
+    @media #{$phone} {
+      height: 100vh;
+    }
+    @media #{$desktop} {
+      height: 200vh;
+    }
     .icon {
       position: absolute;
       z-index: -1;
       @for $i from 1 through 21 {
         &:nth-child(#{$i}) {
           top: random(1000) - 2000 + px;
-          left: random(500) + px;
+          right: random(500) + 10 + px;
+
           opacity: (random(10) / 10 + 0.5);
           @media #{$touch} {
-            left: random(100) + vw;
+            right: random(100) + vw;
           }
         }
       }

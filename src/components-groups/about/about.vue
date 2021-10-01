@@ -11,8 +11,10 @@
         autoplay
       ></lottie-player>
     </div>
+
     <div class="about__content">
       <div class="about__content__title">about</div>
+
       After 4 years studying and working in IT field, I have gained experience
       in creating well-designed web applications and working with server. I
       enjoy working with different tools, including C++, JavaScript, Vue and
@@ -25,7 +27,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import LottieAnimation from 'lottie-vuejs/src/LottieAnimation.vue'; // import lottie-vuejs
 import '@lottiefiles/lottie-player';
 
 @Component
@@ -37,13 +38,21 @@ export default class About extends Vue {
       scrollTrigger: {
         trigger: '.about__wrapper',
         start: 'top 70%',
-        markers: true,
-        end: '+=800',
+        end: '+=500',
+        // markers: true,
         scrub: 1,
       },
       rotation: 30,
       duration: 2,
       transformOrigin: 'bottom 50%',
+    });
+
+    ScrollTrigger.create({
+      trigger: '.about__wrapper',
+      start: '104% 70%',
+      end: '+=200',
+      pin: '.about__content__title',
+      pinSpacing: false,
     });
   }
 }
@@ -57,15 +66,17 @@ export default class About extends Vue {
     position: relative;
 
     height: 100vh;
-    width: 100vw;
+
     overflow: hidden;
 
     display: flex;
     align-items: center;
+    width: 100%;
 
     z-index: 10;
   }
   &__waving {
+    overflow: hidden;
     position: absolute;
     left: -450px;
     top: -200px;
@@ -83,13 +94,22 @@ export default class About extends Vue {
     line-height: 30px;
     text-align: left;
     color: #e9e7ea;
+
+    height: 100vh;
     width: 50vw;
+
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     &__title {
       font-size: 35px;
       line-height: 40px;
       margin-bottom: 50px;
+      background: #181719;
     }
   }
 }

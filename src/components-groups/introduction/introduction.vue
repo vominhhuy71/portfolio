@@ -199,6 +199,9 @@ export default class Introduction extends Vue {
     cursor: pointer;
   }
   &__animated {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
     @media #{$phone} {
       display: none;
     }
