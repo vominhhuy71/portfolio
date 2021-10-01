@@ -125,7 +125,7 @@
         width="50"
         height="50"
         class="cypress icon "
-        src="@/assets/introduction/mysql.svg"
+        src="@/assets/introduction/cypress.svg"
       />
     </div>
   </div>
@@ -162,11 +162,15 @@ export default class AnimatedDiv extends Vue {
   ];
 
   private mounted() {
+    const vh = Math.max(
+      document.documentElement.clientHeight || 0,
+      window.innerHeight || 0
+    );
     for (const item of this.items) {
       anime({
         targets: item,
         top: {
-          value: [-1000, anime.random(0, 700)],
+          value: [-1000, anime.random(0, 2 * vh)],
           duration: 2300,
         },
         delay: 2000,
@@ -205,7 +209,7 @@ export default class AnimatedDiv extends Vue {
   &__wrapper {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
     @media #{$touch} {
       flex-direction: column;
@@ -215,11 +219,13 @@ export default class AnimatedDiv extends Vue {
 
   &__icons {
     position: relative;
+    height: 200vh;
     .icon {
       position: absolute;
+
       @for $i from 1 through 21 {
         &:nth-child(#{$i}) {
-          top: random(500) - 2000 + px;
+          top: random(1000) - 2000 + px;
           left: random(500) + px;
           opacity: (random(10) / 10 + 0.5);
         }

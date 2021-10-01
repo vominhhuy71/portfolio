@@ -36,11 +36,13 @@ export default class About extends Vue {
     gsap.to('.about__waving', {
       scrollTrigger: {
         trigger: '.about__wrapper',
-        start: 'top 50%',
-        // markers: true,
+        start: 'top 70%',
+        markers: true,
+        end: '+=800',
+        scrub: 1,
       },
       rotation: 30,
-      duration: 3,
+      duration: 2,
       transformOrigin: 'bottom 50%',
     });
   }
@@ -64,7 +66,7 @@ export default class About extends Vue {
   &__waving {
     position: absolute;
     left: -450px;
-    top: -100px;
+    top: -200px;
     width: 800px;
     height: 800px;
     @media (max-width: 1350px) {
