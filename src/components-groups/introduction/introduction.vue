@@ -12,7 +12,7 @@
         <compiler />
       </div>
     </div>
-    <animated-div />
+    <animated-div class="introduction__animated" />
   </div>
 </template>
 
@@ -67,10 +67,6 @@ export default class Introduction extends Vue {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
-  @media (max-width: 1350px) {
-    height: 120vh;
-  }
 
   @media #{$touch} {
     flex-direction: column;
@@ -201,6 +197,11 @@ export default class Introduction extends Vue {
       margin-top: 20px;
     }
     cursor: pointer;
+  }
+  &__animated {
+    @media #{$phone} {
+      display: none;
+    }
   }
 }
 

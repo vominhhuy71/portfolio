@@ -167,10 +167,15 @@ export default class AnimatedDiv extends Vue {
       window.innerHeight || 0
     );
     for (const item of this.items) {
+      const rand = Math.floor(Math.random() * 10);
+      let times = 1;
+      if (rand % 2 === 0) {
+        times = 1.4;
+      }
       anime({
         targets: item,
         top: {
-          value: [-1000, anime.random(0, 2 * vh)],
+          value: [-1000, anime.random(0, times * vh - 100)],
           duration: 2300,
         },
         delay: 2000,
@@ -220,14 +225,18 @@ export default class AnimatedDiv extends Vue {
   &__icons {
     position: relative;
     height: 200vh;
+    width: 100vw;
     .icon {
       position: absolute;
-
+      z-index: -1;
       @for $i from 1 through 21 {
         &:nth-child(#{$i}) {
           top: random(1000) - 2000 + px;
           left: random(500) + px;
           opacity: (random(10) / 10 + 0.5);
+          @media #{$touch} {
+            left: random(100) + vw;
+          }
         }
       }
     }

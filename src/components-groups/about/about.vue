@@ -62,6 +62,8 @@ export default class About extends Vue {
 
     display: flex;
     align-items: center;
+
+    z-index: 10;
   }
   &__waving {
     position: absolute;
