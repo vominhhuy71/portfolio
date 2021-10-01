@@ -14,11 +14,12 @@
 
     <div class="about__content">
       <div class="about__content__title">about</div>
-
-      After 4 years studying and working in IT field, I have gained experience
-      in creating well-designed web applications and working with server. I
-      enjoy working with different tools, including C++, JavaScript, Vue and
-      React.
+      <p class="about__content__p">
+        After 4 years studying and working in IT field, I have gained experience
+        in creating well-designed web applications and working with server. I
+        enjoy working with different tools, including C++, JavaScript, Vue and
+        React.
+      </p>
     </div>
   </div>
 </template>
@@ -39,7 +40,6 @@ export default class About extends Vue {
         trigger: '.about__wrapper',
         start: 'top 70%',
         end: '+=500',
-        // markers: true,
         scrub: 1,
       },
       rotation: 30,
@@ -49,8 +49,8 @@ export default class About extends Vue {
 
     ScrollTrigger.create({
       trigger: '.about__wrapper',
-      start: '104% 70%',
-      end: '+=200',
+      start: '50% 70%',
+      end: '+=500',
       pin: '.about__content__title',
       pinSpacing: false,
     });
@@ -96,20 +96,31 @@ export default class About extends Vue {
     color: #e9e7ea;
 
     height: 100vh;
-    width: 50vw;
 
     margin: 0 auto;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 
+    @media #{$phone} {
+      flex-direction: column;
+    }
     &__title {
       font-size: 35px;
       line-height: 40px;
       margin-bottom: 50px;
       background: #181719;
+      color: #32cd32;
+      @media #{$desktop} {
+        margin-right: 30px;
+        align-self: flex-start;
+        height: 50px;
+      }
+    }
+    &__p {
+      width: 50vw;
     }
   }
 }

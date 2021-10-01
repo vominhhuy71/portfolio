@@ -1,7 +1,11 @@
 <template>
   <div class="experience">
-    <div class="experience__title">experience</div>
-    <div class="experience__climb"></div>
+    <div class="experience__content__wrapper">
+      <div class="experience__content__title">experience</div>
+      <div class="experience__content">
+        Hi!
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,11 +20,10 @@ export default class Experience extends Vue {
   private mounted() {
     ScrollTrigger.create({
       trigger: '.experience',
-      start: '200% 70%',
+      start: '50% 70%',
       end: '+=500',
-      pin: '.experience__climb',
+      pin: '.experience__content__title',
       pinSpacing: false,
-      markers: true,
     });
   }
 }
@@ -34,21 +37,35 @@ export default class Experience extends Vue {
   background: #181719;
 
   position: relative;
-  &__title {
-    font-family: 'Fira Code', monospace;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 25px;
-    line-height: 30px;
-    text-align: center;
-    color: #e9e7ea;
-    background: #181719;
-  }
 
-  &__climb {
-    position: absolute;
-    right: 0;
-    top: -200px;
+  &__content {
+    width: 50vw;
+    &__wrapper {
+      font-family: 'Fira Code', monospace;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 25px;
+      line-height: 30px;
+      text-align: left;
+      color: #e9e7ea;
+
+      height: 100vh;
+
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+    }
+    &__title {
+      font-size: 25px;
+      line-height: 30px;
+      background: #181719;
+      margin-right: 30px;
+      align-self: flex-start;
+      color: #32cd32;
+    }
   }
 }
 </style>
