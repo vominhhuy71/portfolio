@@ -35,6 +35,8 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Contact extends Vue {
+  // TODO: add responsive
+
   private openLink(link: string) {
     if (link === 'linkedin') {
       window.open('https://www.linkedin.com/in/minh-huy-vo/', '_blank');
