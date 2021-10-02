@@ -168,14 +168,14 @@ export default class AnimatedDiv extends Vue {
     );
     for (const item of this.items) {
       const rand = Math.floor(Math.random() * 10);
-      let times = 1;
+      let times = 0.1;
       if (rand % 2 === 0) {
-        times = 1.4;
+        times = 0.6;
       }
       anime({
         targets: item,
         top: {
-          value: [-1000, anime.random(0, times * vh - 100)],
+          value: [-1000, anime.random(0, times * vh)],
           duration: 2300,
         },
         delay: 2000,
@@ -224,13 +224,14 @@ export default class AnimatedDiv extends Vue {
 
   &__icons {
     position: absolute;
-    width: 40%;
+    width: 60%;
     right: 0;
+    background: transparent;
     @media #{$phone} {
       height: 100vh;
     }
     @media #{$desktop} {
-      height: 200vh;
+      height: 100vh;
     }
     .icon {
       position: absolute;
@@ -238,7 +239,7 @@ export default class AnimatedDiv extends Vue {
       @for $i from 1 through 21 {
         &:nth-child(#{$i}) {
           top: random(1000) - 2000 + px;
-          right: random(500) + 10 + px;
+          right: random(1000) + 10 + px;
 
           opacity: (random(10) / 10 + 0.5);
           @media #{$touch} {

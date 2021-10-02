@@ -4,11 +4,16 @@
     <div class="home__component introduction">
       <introduction />
     </div>
-    <div class="home__component about">
-      <about />
-    </div>
-    <div class="home__component">
-      <experience />
+    <div class="gradient-background">
+      <div class="home__component about">
+        <about />
+      </div>
+      <div class="home__component">
+        <experience />
+      </div>
+      <div class="home__component">
+        <contact />
+      </div>
     </div>
   </div>
 </template>
@@ -20,6 +25,7 @@ import About from '@/components-groups/about/about.vue';
 import BackToTop from '@/components/back-to-top/back-to-top.vue';
 import SplashScreen from '@/components/splash-screen/splash-screen.vue';
 import Experience from '@/components-groups/experience/experience.vue';
+import Contact from '@/components-groups/contact/contact.vue';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -31,10 +37,26 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     BackToTop,
     SplashScreen,
     Experience,
+    Contact,
   },
 })
 export default class extends Vue {
-  private mounted() {}
+  private mounted() {
+    //Change background
+    // const bg = gsap.fromTo(
+    //   '.gradient-background',
+    //   { backgroundColor: '#e5e5e5' },
+    //   { backgroundColor: '#000000' }
+    // );
+    // ScrollTrigger.create({
+    //   trigger: '.gradient-background',
+    //   scrub: 1,
+    //   markers: true,
+    //   start: '10% 70%',
+    //   end: 'bottom bottom',
+    //   animation: bg,
+    // });
+  }
 
   private closeSplashScreen() {
     const splashScreen = this.$el.querySelector(
@@ -60,7 +82,7 @@ export default class extends Vue {
   &__component {
     height: 100%;
     width: 100%;
-    background: #181719;
+    background: #e5e5e5;
   }
 }
 
@@ -76,5 +98,9 @@ export default class extends Vue {
   transition: 1s;
 
   z-index: 1000;
+}
+
+.gradient-background {
+  background-color: #e5e5e5;
 }
 </style>

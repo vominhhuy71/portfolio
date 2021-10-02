@@ -32,6 +32,8 @@ import '@lottiefiles/lottie-player';
 
 @Component
 export default class About extends Vue {
+  // TODO: add responsive
+
   private mounted() {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -49,8 +51,8 @@ export default class About extends Vue {
 
     ScrollTrigger.create({
       trigger: '.about__wrapper',
-      start: '50% 70%',
-      end: '+=500',
+      start: '10% 70%',
+      end: '+=280',
       pin: '.about__content__title',
       pinSpacing: false,
     });
@@ -65,7 +67,7 @@ export default class About extends Vue {
   &__wrapper {
     position: relative;
 
-    height: 100vh;
+    height: 50vh;
 
     overflow: hidden;
 
@@ -74,6 +76,7 @@ export default class About extends Vue {
     width: 100%;
 
     z-index: 10;
+    background: transparent;
   }
   &__waving {
     overflow: hidden;
@@ -93,28 +96,25 @@ export default class About extends Vue {
     font-size: 25px;
     line-height: 30px;
     text-align: left;
-    color: #e9e7ea;
+    color: #181719;
 
-    height: 100vh;
+    height: 50vh;
 
     margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
 
     @media #{$phone} {
       flex-direction: column;
     }
     &__title {
-      font-size: 35px;
-      line-height: 40px;
-      margin-bottom: 50px;
-      background: #181719;
+      font-size: 50px;
+      line-height: 55px;
       color: #32cd32;
       @media #{$desktop} {
-        margin-right: 30px;
         align-self: flex-start;
         height: 50px;
       }

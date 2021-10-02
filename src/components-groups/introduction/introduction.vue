@@ -28,16 +28,6 @@ import AnimatedDiv from '@/components-groups/introduction/animated-div.vue';
   },
 })
 export default class Introduction extends Vue {
-  private openLink(link: string) {
-    if (link === 'linkedin') {
-      window.open('https://www.linkedin.com/in/minh-huy-vo/', '_blank');
-    } else if (link === 'github') {
-      window.open('https://github.com/vominhhuy71', '_blank');
-    } else if (link === 'gmail') {
-      window.open('mailto:huy.vminh71@gmail.com', '_blank');
-    }
-  }
-
   private toAbout() {
     const el = document.getElementsByClassName('about')[0];
     el.scrollIntoView();
@@ -52,21 +42,17 @@ export default class Introduction extends Vue {
   width: 100%;
   height: 100vh;
 
-  /**Background */
-  // background: url('~@/assets/introduction/background1.jpg');
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-position: center;
-
   background: #181719;
 
   position: relative;
-  z-index: 1;
+  z-index: 10;
   isolation: isolate;
 
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20vw), 0 100%);
 
   @media #{$touch} {
     flex-direction: column;
