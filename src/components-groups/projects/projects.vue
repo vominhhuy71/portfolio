@@ -3,8 +3,9 @@
     <div class="projects__title">projects</div>
     <div class="projects__container">
       <div class="projects__item">
-        <div class="projects__img">
+        <div>
           <img
+            class="projects__img"
             src="@/assets/projects/portfolio.png"
             height="200px"
             width="400px"
@@ -26,8 +27,13 @@
       </div>
 
       <div class="projects__item vertical-image-div">
-        <div class="projects__img">
-          <img src="@/assets/projects/track.png" height="400px" width="200px" />
+        <div>
+          <img
+            class="projects__img"
+            src="@/assets/projects/track.png"
+            height="400px"
+            width="200px"
+          />
         </div>
         <div class="projects__info">
           <div class="projects__info__title">Mobile Tracking Application</div>
@@ -45,8 +51,13 @@
       </div>
 
       <div class="projects__item">
-        <div class="projects__img">
-          <img src="@/assets/projects/more.png" height="200px" width="400px" />
+        <div>
+          <img
+            class="projects__img"
+            src="@/assets/projects/more.png"
+            height="200px"
+            width="400px"
+          />
         </div>
         <div class="projects__info">
           <div class="projects__info__title">And more...</div>
@@ -200,6 +211,11 @@ export default class Projects extends Vue {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+  }
+
+  &__img {
+    border-radius: 10px;
+    outline: 3px solid #fff;
   }
 }
 
