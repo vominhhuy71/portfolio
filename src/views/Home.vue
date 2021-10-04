@@ -1,20 +1,23 @@
 <template>
-  <div class="home">
+  <div class="home ">
     <splash-screen class=" splash-screen" @close-screen="closeSplashScreen" />
-    <div class="home__component introduction">
-      <introduction />
-    </div>
-    <div class="gradient-background">
-      <div class="home__component about">
+    <main>
+      <section class=" introduction">
+        <introduction />
+      </section>
+      <section data-color="#faf8fb" class="home__component">
         <about />
-      </div>
-      <div class="home__component">
+      </section>
+      <section data-color="#91f6d5" class="home__component  ">
         <experience />
-      </div>
-      <div class="home__component">
+      </section>
+      <section data-color="#00b8f1" class="home__component projects">
+        <projects />
+      </section>
+      <section data-color="#124fb4" class="home__component ">
         <contact />
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
 </template>
 
@@ -26,6 +29,7 @@ import BackToTop from '@/components/back-to-top/back-to-top.vue';
 import SplashScreen from '@/components/splash-screen/splash-screen.vue';
 import Experience from '@/components-groups/experience/experience.vue';
 import Contact from '@/components-groups/contact/contact.vue';
+import Projects from '@/components-groups/projects/projects.vue';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -38,51 +42,45 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     SplashScreen,
     Experience,
     Contact,
+    Projects,
   },
 })
 export default class extends Vue {
   private mounted() {
-    //Change background
-    // const bg = gsap.fromTo(
-    //   '.gradient-background',
-    //   { backgroundColor: '#e5e5e5' },
-    //   { backgroundColor: '#000000' }
-    // );
-    // ScrollTrigger.create({
-    //   trigger: '.gradient-background',
-    //   scrub: 1,
-    //   markers: true,
-    //   start: '10% 70%',
-    //   end: 'bottom bottom',
-    //   animation: bg,
-    // });
+    gsap.utils.toArray('.home__component').forEach(function(elem) {
+      let color = (elem as any).getAttribute('data-color');
+      ScrollTrigger.create({
+        trigger: elem as any,
+        start: 'top 50%',
+        end: 'bottom 50%',
+        onEnter: () => gsap.to('main', { backgroundColor: color }),
+        onLeave: () => gsap.to('main', { backgroundColor: '#faf8fb' }),
+        onLeaveBack: () => gsap.to('main', { backgroundColor: '#faf8fb' }),
+        onEnterBack: () => gsap.to('main', { backgroundColor: color }),
+      });
+    });
   }
 
   private closeSplashScreen() {
     const splashScreen = this.$el.querySelector(
       '.splash-screen'
     )! as HTMLElement;
-    splashScreen.style.top = '-100vh';
+    splashScreen.style.top = '-200vh';
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.back-to-top_btn {
-  display: none;
-}
-.back-to-top_btn.appear {
-  display: block;
-}
+@import '../styles/breakpoints.abstracts';
 
 .home {
   position: relative;
   height: 100%;
   width: 100%;
   &__component {
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    background: #e5e5e5;
+    // background: #e5e5e5;
   }
 }
 
@@ -100,7 +98,9 @@ export default class extends Vue {
   z-index: 1000;
 }
 
-.gradient-background {
-  background-color: #e5e5e5;
+.projects {
+  @media #{$phone} {
+    height: 150vh;
+  }
 }
 </style>

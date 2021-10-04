@@ -29,6 +29,24 @@
         </div>
       </div>
     </div>
+    <lottie-player
+      class="shape1"
+      src="https://assets10.lottiefiles.com/packages/lf20_wkgiytpm.json"
+      background="transparent"
+      speed="1"
+      style="width: 500px; height: 500px;"
+      loop
+      mode="bounce"
+      autoplay
+    ></lottie-player>
+    <lottie-player
+      class="shape2"
+      src="https://assets3.lottiefiles.com/packages/lf20_oaquvmss.json"
+      background="transparent"
+      speed="1"
+      style="width: 500px; height: 500px;"
+      autoplay
+    ></lottie-player>
   </div>
 </template>
 
@@ -36,22 +54,11 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
 import '@lottiefiles/lottie-player';
 
 @Component
 export default class Experience extends Vue {
   private mounted() {
-    // Experience title
-    ScrollTrigger.create({
-      trigger: '.experience',
-      start: '10% 70%',
-      end: '+=200',
-      pin: '.experience__title',
-      pinSpacing: false,
-      // markers: true,
-    });
-
     //Timeline
     this.fadeInItems();
   }
@@ -98,19 +105,45 @@ export default class Experience extends Vue {
       animation: tl2,
       scrub: 1,
     });
+
+    let tl3 = gsap.timeline();
+
+    tl3.from('.experience__title', {
+      y: -100,
+      opacity: 0,
+      duration: 1,
+      delay: 2,
+    });
+    tl3.to('.experience__title', {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+    });
+
+    // Experience title
+    ScrollTrigger.create({
+      trigger: '.experience',
+      start: '10% 70%',
+      end: '+=200',
+      animation: tl3,
+      scrub: 1,
+    });
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/breakpoints.abstracts';
+
 .experience {
   padding-top: 30px;
-  height: 50vh;
   width: 100%;
 
-  // background: #c6fced;
+  // background: #454655;
 
   position: relative;
+
+  overflow: hidden;
 
   display: flex;
   flex-direction: row;
@@ -122,7 +155,11 @@ export default class Experience extends Vue {
     line-height: 55px;
     margin-right: 30px;
     align-self: flex-start;
-    color: #5c2a9b;
+    justify-self: flex-start;
+    color: #181719;
+    @media #{$phone} {
+      display: none;
+    }
   }
 
   &__content {
@@ -157,7 +194,7 @@ export default class Experience extends Vue {
   padding: 5px;
   text-transform: uppercase;
   &__wrapper {
-    height: 10vh;
+    height: 15vh;
   }
 }
 
@@ -170,13 +207,13 @@ export default class Experience extends Vue {
     text-transform: lowercase;
   }
   &__desc {
-    background: #e5e5e5;
+    background: #91f6d5;
   }
   display: flex;
   align-items: center;
   flex-direction: column;
   &__wrapper {
-    height: 10vh;
+    height: 15vh;
   }
 }
 
@@ -185,7 +222,7 @@ export default class Experience extends Vue {
   color: white;
   padding: 5px;
   &__wrapper {
-    height: 10vh;
+    height: 15vh;
   }
 }
 
@@ -196,10 +233,29 @@ export default class Experience extends Vue {
   font-size: 35px;
   line-height: 40px;
   text-align: left;
+  color: #007f7d;
 
   text-transform: lowercase;
   &__wrapper {
     height: 100%;
   }
+}
+
+.shape1,
+.shape2 {
+  position: absolute;
+
+  @media #{$phone} {
+    display: none;
+  }
+}
+.shape1 {
+  right: -10vw;
+  top: 0;
+}
+
+.shape2 {
+  left: 0;
+  top: 100px;
 }
 </style>

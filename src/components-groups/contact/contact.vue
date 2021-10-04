@@ -1,16 +1,17 @@
 <template>
   <div class="contact">
     <div class="contact__card">
-      <div style="height: 100%;">
-        <img class="contact__img" src="@/assets/avatar.png" />
+      <div class="contact__img">
+        <img src="@/assets/avatar.png" />
       </div>
       <div class="contact__content">
         <div>
-          Find me at
+          Contact me at
           <span @click="openLink('gmail')" class="contact__email"
             >huy.vminh71@gmail.com</span
           >
         </div>
+        Learn more:
         <div class="contact__btn-list" @click="openLink('linkedin')">
           <div class="contact__button">
             <div class="contact__button__title">Linkedin</div>
@@ -32,6 +33,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import '@lottiefiles/lottie-player';
 
 @Component
 export default class Contact extends Vue {
@@ -53,8 +55,7 @@ export default class Contact extends Vue {
 @import '../../styles/breakpoints.abstracts';
 
 .contact {
-  height: 50vh;
-
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,13 +70,18 @@ export default class Contact extends Vue {
 
   padding: 5rem;
 
+  @media #{$phone} {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
   &__card {
     height: 100%;
     width: 100%;
 
-    background: #181719;
-
     display: flex;
+
+    align-items: center;
 
     @media #{$phone} {
       flex-direction: column;
@@ -86,11 +92,16 @@ export default class Contact extends Vue {
   }
   &__img {
     transform: scale(0.5);
+    margin-bottom: 10px;
   }
 
   &__button {
     width: 200px;
     height: 75px;
+
+    @media #{$phone} {
+      transform: scale(0.5);
+    }
 
     background-color: white;
 
@@ -124,13 +135,17 @@ export default class Contact extends Vue {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 20px;
+    @media #{$phone} {
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   &__content {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
   }
 

@@ -48,14 +48,6 @@ export default class About extends Vue {
       duration: 2,
       transformOrigin: 'bottom 50%',
     });
-
-    ScrollTrigger.create({
-      trigger: '.about__wrapper',
-      start: '10% 70%',
-      end: '+=280',
-      pin: '.about__content__title',
-      pinSpacing: false,
-    });
   }
 }
 </script>
@@ -66,8 +58,6 @@ export default class About extends Vue {
 .about {
   &__wrapper {
     position: relative;
-
-    height: 50vh;
 
     overflow: hidden;
 
@@ -110,6 +100,7 @@ export default class About extends Vue {
     @media #{$phone} {
       flex-direction: column;
     }
+
     &__title {
       font-size: 50px;
       line-height: 55px;
@@ -117,6 +108,9 @@ export default class About extends Vue {
       @media #{$desktop} {
         align-self: flex-start;
         height: 50px;
+      }
+      @media #{$phone} {
+        display: none;
       }
     }
     &__p {

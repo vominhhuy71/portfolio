@@ -52,10 +52,11 @@ export default class Introduction extends Vue {
   align-items: center;
   justify-content: flex-start;
 
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20vw), 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
 
   @media #{$touch} {
     flex-direction: column;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12vw), 0 100%);
   }
   &__wrapper {
     min-width: 50vw;
