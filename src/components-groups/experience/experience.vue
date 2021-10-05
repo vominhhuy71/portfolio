@@ -150,6 +150,10 @@ export default class Experience extends Vue {
   justify-content: center;
   align-items: center;
 
+  @media #{$phone} {
+    height: 100%;
+  }
+
   &__title {
     font-size: 50px;
     line-height: 55px;
@@ -163,8 +167,6 @@ export default class Experience extends Vue {
   }
 
   &__content {
-    height: 20vh;
-
     font-family: 'Fira Code', monospace;
     font-style: bold;
     font-weight: 400;
@@ -185,6 +187,10 @@ export default class Experience extends Vue {
       flex-direction: column;
 
       position: relative;
+      @media #{$phone} {
+        height: 100vh;
+        justify-content: space-around;
+      }
     }
   }
 }

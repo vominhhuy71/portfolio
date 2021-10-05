@@ -5,10 +5,8 @@
       <div class="projects__item">
         <div>
           <img
-            class="projects__img"
+            class="projects__img tall-img"
             src="@/assets/projects/portfolio.png"
-            height="200px"
-            width="400px"
           />
         </div>
         <div class="projects__info">
@@ -53,7 +51,7 @@
       <div class="projects__item">
         <div>
           <img
-            class="projects__img"
+            class="projects__img  tall-img"
             src="@/assets/projects/more.png"
             height="200px"
             width="400px"
@@ -247,6 +245,16 @@ export default class Projects extends Vue {
   @media #{$phone} {
     align-items: center;
     height: 550px;
+  }
+}
+
+.tall-img {
+  height: 200px;
+  width: 400px;
+
+  @media #{$phone} {
+    height: 100px;
+    width: 200px;
   }
 }
 </style>

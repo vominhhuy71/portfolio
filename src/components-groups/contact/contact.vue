@@ -73,6 +73,7 @@ export default class Contact extends Vue {
   @media #{$phone} {
     font-size: 25px;
     line-height: 30px;
+    padding: 0rem;
   }
 
   &__card {

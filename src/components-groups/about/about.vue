@@ -15,10 +15,10 @@
     <div class="about__content">
       <div class="about__content__title">about</div>
       <p class="about__content__p">
-        After 4 years studying and working in IT field, I have gained experience
-        in creating well-designed web applications and working with server. I
-        enjoy working with different tools, including C++, JavaScript, Vue and
-        React.
+        After 4 years of studying and working in IT field, I have gained
+        experience in creating well-designed web applications and in working
+        with server. I enjoy working with different tools, including C++,
+        JavaScript, Vue and React.
       </p>
     </div>
   </div>
@@ -67,6 +67,10 @@ export default class About extends Vue {
 
     z-index: 10;
     background: transparent;
+
+    @media #{$phone} {
+      height: 100vh;
+    }
   }
   &__waving {
     overflow: hidden;
